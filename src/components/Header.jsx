@@ -35,7 +35,7 @@ const Header = () => {
           {currentDate.toLocaleDateString("en-US", dateOptions)}
         </time>
 
-        {/* <ThemeToggle /> */}
+        <ThemeToggle />
       </div>
     </header>
   );
