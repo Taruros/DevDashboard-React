@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Weather from "./components/Weather";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <div className="left-column">
           <section id="weather">
             <h2>Weather</h2>
+            <Weather />
           </section>
 
           <section id="news">
