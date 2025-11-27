@@ -1,10 +1,31 @@
-import { useState, useEffect } from "react";
 import Header from "./components/Header";
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
+
+      <main>
+        <div className="left-column">
+          <section id="weather">
+            <h2>Weather</h2>
+          </section>
+
+          <section id="news">
+            <h2>News</h2>
+          </section>
+        </div>
+
+        <div className="right-column">
+          <section id="trending">
+            <h2>Trending</h2>
+          </section>
+
+          <section id="todo">
+            <h2>To-Do List</h2>
+          </section>
+        </div>
+      </main>
     </div>
   );
 }

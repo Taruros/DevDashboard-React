@@ -1,27 +1,42 @@
 import { useState, useEffect } from "react";
 
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ||
-      (window.matchMedia("prefers-color-scheme: dark").matches
+  const [theme, setTheme] = useState(() => {
+    try {
+      const stored = localStorage.getItem("theme");
+      if (stored) return stored;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
-        : "light")
-  );
+        : "light";
+    } catch {
+      return "light";
+    }
+  });
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
+    try {
+      if (theme === "light") document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", theme);
+    } catch {
+      // ignore
+    }
   }, [theme]);
 
-  if (theme !== "dark") document.documentElement.classList.remove("dark");
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    try {
+      document.documentElement.classList.toggle("dark");
+    } catch {
+      // ignore
+    }
+  };
 
   return (
     <button
       className="btn btn-theme-toggle"
       id="theme-toggle"
-      onClick={() => {
-        setTheme((prev) => (prev === "dark" ? "light" : "dark"));
-        document.documentElement.classList.toggle("dark");
-      }}
+      onClick={toggleTheme}
     >
       Toggle theme
     </button>
