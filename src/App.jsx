@@ -2,6 +2,8 @@ import Header from "./components/Header";
 import Weather from "./components/Weather";
 import News from "./components/News";
 import Trending from "./components/Trending";
+import Todo from "./components/Todo";
+import Footer from "./components/Footer";
 
 function App() {
   return (
