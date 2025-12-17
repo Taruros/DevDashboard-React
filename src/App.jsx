@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Weather from "./components/Weather";
 import News from "./components/News";
+import Trending from "./components/Trending";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <div className="right-column">
           <section id="trending">
             <h2>Trending</h2>
+            <Trending />
           </section>
 
           <section id="todo">
